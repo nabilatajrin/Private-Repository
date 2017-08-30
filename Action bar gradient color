@@ -1,0 +1,40 @@
+Here is my action_bar_bg.xml file in which I define the gradient for my action bar.
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="90"
+        android:centerColor="@color/turquoise_action_bar"
+        android:endColor="@color/dark_turquoise"
+        android:startColor="@color/dark_turquoise" />
+</shape>
+
+DeadObjectException
+
+android:shape="line" can't be used if there is a gradient inside. I tested it; my Samsung Galaxy Note 10.1 N8000 restarted, and there was a DeadObjectException.
+
+The linear type of gradient pattern is the default value. So you don't have to declare it explicitly.
+
+Here is my styles.xml in the values folder.
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeBase" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/PeopleCanAct</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="AppTheme" parent="AppThemeBase">
+        <!-- All the customizations that are NOT specific to a particular API level can go here -->
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/action_bar_bg</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/action_bar_bg</item>
+    </style>
+
+</resources>
