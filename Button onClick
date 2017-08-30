@@ -1,0 +1,27 @@
+//button on click to go to new page
+
+<Button
+        android:id="@+id/test_button"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/gradient_menu_button"
+        android:onClick="onClickTest"
+        android:text="Test Page" />
+		
+java:
+
+private Button testButton;
+
+inside onCreate:
+testButton = (Button) findViewById(R.id.test_button);
+
+then the method just before the last braces:
+
+    //button for test reg status page
+    public void onClickTest(View view){
+        Intent i = new Intent(getApplicationContext(), RegistrationStatusActivity.class);
+        startActivity(i);
+    }
