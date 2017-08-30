@@ -1,0 +1,40 @@
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/scrollViewLayout"
+
+inside scrollView tag of XML file
+..................................................
+
+
+ implements View.OnTouchListener 
+ 
+ .................................................
+ 
+ private ScrollView scrollViewLayout;
+ .................................................
+ 
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+	 .......
+	 .......
+	 .......
+ 
+	scrollViewLayout = (ScrollView) getView().findViewById(R.id.scrollViewLayout);
+	scrollViewLayout.setOnTouchListener(this);
+	
+	
+ ..............................................
+ 
+ @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        Toast.makeText(getActivity(), "onTouch", Toast.LENGTH_SHORT).show();
+        hideKeyboard(v);
+        return false;
+    }
+	
+	 // hide keyboard
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        Toast.makeText(getActivity(), "hideKeyboard", Toast.LENGTH_SHORT).show();
+    }
