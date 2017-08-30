@@ -1,0 +1,176 @@
+datePickerDob(dobEditDate);
+datePickerLmp(lmpEditDate);
+
+ //------------------------------------------LMP calender invalid date disable-----------------------------------------------------
+    private void datePickerLmp(final EditText lmpEditDate){
+
+        lmpEditDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog.OnDateSetListener dpd = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+
+                        int s = monthOfYear + 1;
+                        Calendar myCalendar = Calendar.getInstance();
+                        DateFormat  df = new SimpleDateFormat("yyyy-MM-dd");
+                        myCalendar.setTime(new Date());
+                        myCalendar.add(Calendar.DAY_OF_YEAR,-41);
+                        Date validMinDateLMP = myCalendar.getTime();
+                        String minDateLMP = df.format(validMinDateLMP);
+
+                        Calendar mCalendar = Calendar.getInstance();
+                        mCalendar.setTime(new Date());
+                        mCalendar.add(Calendar.DAY_OF_YEAR,-294);
+                        Date validMaxDateLMP = mCalendar.getTime();
+                        String maxDateLMP = df.format(validMaxDateLMP);
+
+                        String month = null;
+                        String day = null;
+                        if (s<10){
+                            month="0"+s;
+                        }else{
+                            month =""+s;
+                        }
+                        if (dayOfMonth<10){
+                            day ="0"+dayOfMonth;
+                        }else{
+                            day=""+dayOfMonth;
+                        }
+                        String newDate = year + "-" + month + "-" + day;
+
+                        lmpEditDate.setText(newDate);
+
+                        numbDays = dateDifference(newDate);
+                        if(numbDays < (6*7) || numbDays > (42*7)){
+                            packagName = "new_mother";
+                            String msg = "";
+                            if (numbDays < (6*7))
+                                msg =  "LMP date has to be before " + minDateLMP;
+                            if (numbDays > (42*7))
+                                msg = "LMP date must not be before " + maxDateLMP;
+
+                            Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
+                            lmpEditDate.setText("");
+                        }
+                    }
+                };
+
+                Calendar myCalendar = Calendar.getInstance();
+                DatePickerDialog d = new DatePickerDialog(getContext(), dpd, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+
+                Date today = new Date();
+                Calendar c = Calendar.getInstance();
+                c.setTime(today);
+                c.add( Calendar.WEEK_OF_MONTH, - 42 ); // Subtract 6 weeks
+                long minDate = c.getTime().getTime(); // Twice!
+                d.getDatePicker().setMinDate(minDate);
+                c.setTime(today);
+                c.add( Calendar.WEEK_OF_MONTH, - 6 ); // Subtract 6 weeks
+                long maxDate = c.getTime().getTime(); // Twice!
+                d.getDatePicker().setMaxDate(maxDate);
+                d.show();
+            }
+        });
+    }
+
+    //-------------------DOB calender invalid date disable, and package selection on basis of date selection--------------------------
+    private void datePickerDob(final EditText dobEditDate){
+        dobEditDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog.OnDateSetListener dpd = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+
+                        int s = monthOfYear + 1;
+                        Calendar myCalendar = Calendar.getInstance();
+                        DateFormat  df = new SimpleDateFormat("yyyy-MM-dd");
+                        myCalendar.setTime(new Date());
+                        myCalendar.add(Calendar.DAY_OF_YEAR,-41);
+                        Date validMinDateLMP = myCalendar.getTime();
+                        String minDateLMP = df.format(validMinDateLMP);
+
+                        Calendar mCalendar = Calendar.getInstance();
+                        mCalendar.setTime(new Date());
+                        mCalendar.add(Calendar.DAY_OF_YEAR,-294);
+                        Date validMaxDateLMP = mCalendar.getTime();
+                        String maxDateLMP = df.format(validMaxDateLMP);
+
+                        String month = null;
+                        String day = null;
+                        if (s<10){
+                            month="0"+s;
+                        }else{
+                            month =""+s;
+                        }
+                        if (dayOfMonth<10){
+                            day ="0"+dayOfMonth;
+                        }else{
+                            day=""+dayOfMonth;
+                        }
+                        String newDate = year + "-" + month + "-" + day;
+
+                        dobEditDate.setText(newDate);
+
+                        int numbDays = dateDifference(newDate);
+                        if(numbDays < 0 || numbDays > (208*7)){
+                            Toast.makeText(getContext(), " No package is available for this age !! ",  Toast.LENGTH_LONG).show();
+//                            dobEditDate.setText("");
+                            selectValue(spinnerDialect, "");
+                        }
+                        else if (numbDays >= 0 && numbDays <= (52*7)){
+                            packageShogorva.setVisibility(View.VISIBLE);
+                            packageShoishob.setVisibility(View.GONE);
+                            restSpinnerDialect(spinnerDialect);
+                        }
+                        else if(numbDays > (52*7) && numbDays <= (104*7)){
+                            packageShogorva.setVisibility(View.VISIBLE);
+                            packageShoishob.setVisibility(View.GONE);
+                            selectValue(spinnerDialect, "Rural");
+                        }
+                        else if(numbDays > (104*7) && numbDays <= (208*7)){
+                            packageShoishob.setVisibility(View.VISIBLE);
+                            packageShogorva.setVisibility(View.GONE);
+                            selectValue(spinnerDialect, "Rural");
+                        }
+                    }
+                };
+
+                Calendar myCalendar = Calendar.getInstance();
+                DatePickerDialog d = new DatePickerDialog(getContext(), dpd, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+
+                Date today = new Date();
+                Calendar c = Calendar.getInstance();
+                c.setTime(today);
+                c.add( Calendar.WEEK_OF_MONTH, - 208 ); // Subtract 208 weeks
+                long minDate = c.getTime().getTime(); // Twice!
+                d.getDatePicker().setMinDate(minDate);
+                c.setTime(today);
+                //c.add( Calendar.WEEK_OF_MONTH, - 6 ); // Subtract 6 weeks
+                long maxDate = c.getTime().getTime(); // Twice!
+                d.getDatePicker().setMaxDate(maxDate);
+                d.show();
+            }
+        });
+    }
+	
+-----------
+   if(numbDays < (6*7) || numbDays > (42*7)){
+                            packagName = "new_mother";
+                            String msg = "";
+                            if (numbDays < (6*7))
+                                msg =  "No package is available for LMP date after " + minDateLMP;
+                            if (numbDays > (42*7))
+                                msg = "No package is available for LMP date before " + maxDateLMP;
+
+                            Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
+                            lmpEditDate.setText("");
