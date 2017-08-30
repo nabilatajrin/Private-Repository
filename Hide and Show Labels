@@ -1,0 +1,140 @@
+<RadioButton
+	android:id="@+id/radioNewMother"
+	android:layout_width="158dp"
+	android:layout_height="wrap_content"
+	android:text="New Mother" />
+
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/dobLayout"
+	android:visibility="gone">
+
+	<TextView
+		android:id="@+id/dobText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Child's DOB*"
+		android:layout_alignBaseline="@+id/dobEditDate"
+		android:layout_alignBottom="@+id/dobEditDate"
+		android:layout_toLeftOf="@+id/dobEditDate"
+		android:layout_toStartOf="@+id/dobEditDate" />
+
+	<EditText
+		android:id="@+id/dobEditDate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:inputType="date"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentEnd="true"
+		android:hint="YYYY-MM-DD"
+		android:focusable="false"/>
+
+</RelativeLayout>
+
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/packageShogorva"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ed3e75"
+                                android:text="Package is  "
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center" />
+
+                            <ImageView
+                                android:layout_width="110dp"
+                                android:layout_height="110dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/shogorbha" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/packageShoishob"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#f0542c"
+                                android:text="Package is  "
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center" />
+
+                            <ImageView
+                                android:layout_width="85dp"
+                                android:layout_height="85dp"
+                                app:srcCompat="@drawable/shoishob" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+					
+					-----------------------------------------------------------------
+
+    public LinearLayout packageShogorva;
+    public LinearLayout packageShoishob;
+	
+	    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		
+			packageShogorva = (LinearLayout) view.findViewById(R.id.packageShogorva);
+			packageShoishob = (LinearLayout) view.findViewById(R.id.packageShoishob);
+		}
+		
+		    //LMP validation
+    private void datePicker(final EditText editText){
+        if (editText instanceof  EditText){
+            editText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                DatePickerDialog.OnDateSetListener dpd = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                          int dayOfMonth) {
+										  
+		
+				                    //DOB validation
+                    if((editText.getId() == R.id.dobEditDate)){
+                        int numbDays = dateDifference(newDate);
+                        if(numbDays < 0 || numbDays > (208*7)){
+                            Toast.makeText(getContext(), " No package is available for this age !! ",  Toast.LENGTH_LONG).show();
+                            editText.setText("");
+                            selectValue(spinnerDialect, "");
+                        }
+                        else if (numbDays >= 0 && numbDays <= (52*7)){
+                            packageShogorva.setVisibility(View.VISIBLE);
+                            packageShoishob.setVisibility(View.GONE);
+                            restSpinnerDialect(spinnerDialect);
+                        }
+                        else if(numbDays > (52*7) && numbDays <= (104*7)){
+                            packageShogorva.setVisibility(View.VISIBLE);
+                            packageShoishob.setVisibility(View.GONE);
+                            selectValue(spinnerDialect, "Rural");
+                        }
+                        else if(numbDays > (104*7) && numbDays <= (208*7)){
+                            packageShoishob.setVisibility(View.VISIBLE);
+                            packageShogorva.setVisibility(View.GONE);
+                            selectValue(spinnerDialect, "Rural");
+                        }
+                    }
+                    }
+                };
+		}
+		
