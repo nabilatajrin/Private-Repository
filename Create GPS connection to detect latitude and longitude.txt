@@ -1,5 +1,7 @@
 Longiture & Latutude 
 
+import com.google.android.gms.location.LocationListener;
+
 Step 1 : add dependency in project gradle 
 
 compile 'com.google.android.gms:play-services-location:10.2.6'   // than sync
@@ -63,7 +65,7 @@ public void onConnected(@Nullable Bundle bundle) {
 	if (myLocation != null) {
 		mLatitude = myLocation.getLatitude();
 		mLongitude = myLocation.getLongitude();
-		Toast.makeText(this, "Location : " + "Lat : "+ mLatitude + "Log : "+ mLongitude, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "*** Location ***" + "\nLat : "+ mLatitude + "\nLog : "+ mLongitude, Toast.LENGTH_LONG).show();
 	} else {
 		// do something is failled;
 	}
