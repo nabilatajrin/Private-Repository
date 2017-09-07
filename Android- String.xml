@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">Aponjon Registration</string>
+    <string name="label_user_name">User Name: </string>
+    <string name="user_name">User Name</string>
+    <string name="label_password">Password: </string>
+    <string name="password">Password</string>
+    <string name="log_in_button">Login</string>
+    <string name="forgot_pass"><u>Forgot Password</u></string>
+    <string name="reset_pass_button"><u>Reset Password</u></string>
+
+    <!--registration form one dialect arrays-->
+    <string-array name="dialect_arrays">
+        <item>Rural</item>
+        <item>Urban</item>
+        <item>Chittagonian</item>
+        <item>Sylhety</item>
+    </string-array>
+
+    <string-array name="dialect_values">
+        <item>RURAL</item>
+        <item>URBAN</item>
+        <item>CTG</item>
+        <item>SHY</item>
+    </string-array>
+
+
+    <!--registration form three occupation arrays-->
+    <string-array name="occupation_arrays">
+        <item>House Wife</item>
+        <item>Student</item>
+        <item>Service holder</item>
+        <item>Business women</item>
+        <item>Not working</item>
+    </string-array>
+
+    <string-array name="occupation_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <!--registration form three, family head occupation arrays-->
+    <string-array name="family_head_occupation_arrays">
+        <item>House Wife</item>
+        <item>Service holder</item>
+        <item>Business women</item>
+        <item>Not working</item>
+    </string-array>
+
+    <string-array name="family_head_occupation_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+    <!--registration form three education status arrays-->
+    <string-array name="education_arrays">
+        <item>Primary school</item>
+        <item>Secondary school</item>
+        <item>Diploma</item>
+        <item>Honers</item>
+        <item>Masters</item>
+        <item>Not enrolled</item>
+    </string-array>
+
+    <string-array name="education_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_activity_registration_unsuccessful">RegistrationUnsuccessful</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_incomplete">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_vibrate">Vibrate</string>
+
+
+    //DOBupdate XML Strings
+    <string name="dob_name_value">Jorina</string>
+    <string name="dob_week">Week: </string>
+    <string name="dob_mobile">Mobile: </string>
+    <string name="dob_mobile_value">01659640865</string>
+    <string name="dob_address_text">Address:</string>
+    <string name="dob_union">Union:</string>
+    <string name="dob_upazilla">Upazilla:</string>
+    <string name="dob_district">District:</string>
+    <string name="dob_update_dob">Update DOB</string>
+
+    //Registration status
+    <string name="form_status">Form Status</string>
+    <string name="reg_status">Registration Status</string>
+    <string name="maturity_status">Maturity Status</string>
+
+    //update DOB
+    <string name="dob_name">Name: </string>
+    <string name="dob_package">Package: </string>
+    <string name="dob_mobile_no">Mobile no: </string>
+    <string name="dob">DOB: </string>
+    <string name="lmp">LMP: </string>
+
+
+    //All button Strings
+    <string name="dob_reminder_button">Remind Me</string>
+    <string name="home_button">Home</string>
+    <string name="menu_button">Menu</string>
+    <string name="dob_cancel_button">Cancel</string>
+    <string name="dob_update_button">Update</string>
+
+</resources>
