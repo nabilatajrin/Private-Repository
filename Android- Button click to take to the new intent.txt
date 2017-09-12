@@ -1,0 +1,50 @@
+//button on click to go to new intent
+
+//-----------button design-------------
+<Button
+        android:id="@+id/test_button"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/gradient_menu_button"
+        android:onClick="onClickTest"
+        android:text="Test Page" />
+		
+java:
+
+then the method just before the last braces:
+
+//-----------method for action-------------
+//home button action
+public void onClickHome(View view) {
+    Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+    startActivity(i);
+}
+
+
+-------------------------------------------------------------onClick button action with only Java program-------------------------------------------------
+
+//-----------declare variable-------------
+private Button homeButton;
+
+inside onCreate:
+//-----------instantiate object (after supermethod)-------------
+homeButton = (Button) findViewById(R.id.home_button);
+
+//-----------method for action-------------
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        homeButton = (Button) findViewById(R.id.news_home_button);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_news);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
