@@ -6,8 +6,12 @@ git status:
 git add --all
 git commit -m "your comments"
 git push origin brishty
+
 ------
 git reset --hard  ://clear recent changes
 
 ----- to each step backword
 git reset --hard head^
+
+----- to merge all branches
+git merge
