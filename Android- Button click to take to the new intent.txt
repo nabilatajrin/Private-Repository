@@ -9,7 +9,7 @@
         android:layout_marginLeft="170dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/gradient_menu_button"
-        android:onClick="onClickTest"
+        android:onClick="onClickHome"
         android:text="Test Page" />
 		
 java:
@@ -24,7 +24,7 @@ public void onClickHome(View view) {
 }
 
 
--------------------------------------------------------------onClick button action with only Java program-------------------------------------------------
+-----------------------------------------------onClick button action with only Java program----------------------------------
 
 //-----------declare variable-------------
 private Button homeButton;
