@@ -29,17 +29,16 @@ public void onClickHome(View view) {
 //-----------declare variable-------------
 private Button homeButton;
 
-inside onCreate:
-//-----------instantiate object (after supermethod)-------------
-homeButton = (Button) findViewById(R.id.home_button);
-
 //-----------method for action-------------
 @Override
     protected void onCreate(Bundle savedInstanceState) {
-        homeButton = (Button) findViewById(R.id.news_home_button);
+
+	//-----------instantiate object (after supermethod)-------------
+	homeButton = (Button) findViewById(R.id.home_button);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
