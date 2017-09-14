@@ -15,3 +15,8 @@ Usage
     android:src="@drawable/profile"
     app:civ_border_width="2dp"
     app:civ_border_color="#FF000000"/>
+    
+    
+    
+    Src: https://github.com/hdodenhof/CircleImageView
+    
