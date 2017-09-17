@@ -1,0 +1,15 @@
+protected void onCreate(Bundle savedInstanceState) {
+	// set to the action bar's Up/Home back button
+	getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+}		
+		
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+	switch (item.getItemId()) {
+		// Respond to the action bar's Up/Home button
+		case android.R.id.home:
+			onBackPressed();
+			return true;
+	}
+	return super.onOptionsItemSelected(item);
+}
