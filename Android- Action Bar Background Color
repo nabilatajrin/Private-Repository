@@ -1,0 +1,5 @@
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	//action bar color set
+	getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_registration_action_bar));
+}
