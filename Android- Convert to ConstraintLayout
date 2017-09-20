@@ -1,0 +1,35 @@
+//Convert to constraint layout
+
+Add ConstraintLayout to your project
+
+To use ConstraintLayout in your project, proceed as follows:
+
+    1. Ensure you have the maven.google.com repository declared in your module-level build.gradle file:
+
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+        }
+    }
+
+	2. Add the library as a dependency in the same build.gradle file:
+
+	dependencies {
+		compile 'com.android.support.constraint:constraint-layout:1.0.2'
+	}
+
+	3. In the toolbar or sync notification, click Sync Project with Gradle Files.
+
+
+Now you're ready to build your layout with ConstraintLayout.
+
+
+###Convert a layout
+
+Figure 3. The menu to convert a layout to ConstraintLayout
+
+To convert an existing layout to a constraint layout, follow these steps:
+
+    Open your layout in Android Studio and click the Design tab at the bottom of the editor window.
+    In the Component Tree window, right-click the layout and click Convert layout to ConstraintLayout.
+
