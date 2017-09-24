@@ -1,0 +1,9 @@
+//hide action bar
+
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        getSupportActionBar().hide();
+
+		//must be before super.onCreate(savedInstanceState);
+	}
