@@ -11,6 +11,8 @@
 --------------------------------------------------------------------------------------
 Java:
 
+private ProgressBar newPasswordProgress;
+
 @Override
 protected void onCreate(Bundle savedInstanceState) {
 	newPasswordProgress = (ProgressBar) findViewById((R.id.new_password_progress));
