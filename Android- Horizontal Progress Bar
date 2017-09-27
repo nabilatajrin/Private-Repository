@@ -1,7 +1,5 @@
-//horizontal progress bar
-
 <ProgressBar
-	android:id="@+id/profile_progress_bar"
+	android:id="@+id/new_password_progress"
 	android:layout_gravity="center"
 	style="?android:progressBarStyleHorizontal"
 	android:layout_width="match_parent"
@@ -9,3 +7,30 @@
 	android:layout_marginTop="10dp"
 	android:max="8"
 	tools:progress="1"/>
+
+--------------------------------------------------------------------------------------
+Java:
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	newPasswordProgress = (ProgressBar) findViewById((R.id.new_password_progress));
+	newPasswordProgress.setMax(4);
+
+	//horizontal progress bar
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		if (0< s.length() && s.length()<5){
+			newPasswordProgress.setProgress(1);
+		}if (5< s.length() && s.length()<8){
+			newPasswordProgress.setProgress(2);
+		}
+		if (8< s.length() &&s.length()<11){
+			newPasswordProgress.setProgress(3);
+		}
+		if (11< s.length() && s.length()<15){
+			newPasswordProgress.setProgress(4);
+		}
+	}	
+}
+	
+	
