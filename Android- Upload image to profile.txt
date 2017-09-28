@@ -89,16 +89,31 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 		Bitmap bmp = null;
 		try {
-			bmp = getBitmapFromUri(selectedImage);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(bmp == null) Toast.makeText(this, "Bitmap is null", Toast.LENGTH_SHORT).show();
+                bitmap = getBitmapFromUri(selectedImage);
 
-		imageView.setImageBitmap(bmp);
+                byte[] imageByte = ImageUtil.getBytes(bitmap);
+                String encodeImage = ImageUtil.encodeImage(imageByte);
 
-	}
+
+                SharedPreferences sharedpreferences = getSharedPreferences(PREFERENCE_NAME, 0);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("userimage");
+                editor.putString("userimage", encodeImage);
+                editor.commit();
+
+            } catch (IOException e) {
+                Log.d(TAG, "Image : "+e.getMessage());
+            }
+            if(bitmap == null){
+                Toast.makeText(this, "No Image Selected", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "bitmap not convert");
+                return;
+            }
+            profilePicture.setImageBitmap(bitmap);
+
+        }else{
+            Log.e(TAG, "No Image Selected");
+        }
 }
 
 private Bitmap getBitmapFromUri(Uri uri) throws IOException {
