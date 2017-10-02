@@ -91,13 +91,13 @@
     public LinearLayout packageShogorva;
     public LinearLayout packageShoishob;
 	
-	    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+		packageShogorva = (LinearLayout) view.findViewById(R.id.packageShogorva);
+		packageShoishob = (LinearLayout) view.findViewById(R.id.packageShoishob);
+	}
 		
-			packageShogorva = (LinearLayout) view.findViewById(R.id.packageShogorva);
-			packageShoishob = (LinearLayout) view.findViewById(R.id.packageShoishob);
-		}
-		
-		    //LMP validation
+    //LMP validation
     private void datePicker(final EditText editText){
         if (editText instanceof  EditText){
             editText.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@
                                           int dayOfMonth) {
 										  
 		
-				                    //DOB validation
+		    //DOB validation
                     if((editText.getId() == R.id.dobEditDate)){
                         int numbDays = dateDifference(newDate);
                         if(numbDays < 0 || numbDays > (208*7)){
@@ -134,7 +134,7 @@
                             selectValue(spinnerDialect, "Rural");
                         }
                     }
-                    }
-                };
-		}
+	    }
+	};
+}
 		
