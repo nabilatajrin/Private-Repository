@@ -1,0 +1,48 @@
+//spinner with xml
+
+<Spinner
+	android:id="@+id/cancel_reasons_value_arrays"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:entries="@array/cancel_reasons_value_arrays"
+	android:textSize="15sp"
+	android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
+-----------------------------------------------------------------------
+res>values>strings
+
+    <!--cancel reason arrays-->
+    <string-array name="cancel_reasons_value_arrays">
+        <item>Stay Away from Pregnant / New mother</item>
+        <item>Age of baby is above 1 year</item>
+        <item>She was valid when data collected, but later on became invalid for processing delay</item>
+        <item>Does not know LMP</item>
+        <item>Miscarriage</item>
+        <item>Death of Baby</item>
+        <item>Death of Mother</item>
+        <item>Invalid SIM</item>
+        <item>Does not know DOB</item>
+        <item>Subscriber does not belong to registered mobile number</item>
+        <item>Unwilling to pay</item>
+        <item>Not Interested</item>
+        <item>No Response</item>
+        <item>Phone Off</item>
+        <item>Call Later</item>
+    </string-array>
+
+    <string-array name="cancel_reasons_id_arrays">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </string-array>
