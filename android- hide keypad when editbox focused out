@@ -1,0 +1,46 @@
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/scrollViewLayout"
+
+inside scrollView tag of XML file
+..................................................
+
+
+public class ProfileEditActivity extends AppCompatActivity implements View.OnTouchListener {
+
+ .................................................
+ 
+private ScrollView scrollViewLayout; (secondRegScrollViewLayout  fourthRegFrameLayout  radioGurdianHeadGroup  editText clearFocus();)
+ .................................................
+ 
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+or inside onCreate, if its onCreate then its loginLayout = (LinearLayout) findViewById(R.id.loginLayout);
+	 .......
+	 .......
+	 .......
+ 
+	scrollViewLayout = (ScrollView) findViewById(R.id.scrollViewLayout);
+	scrollViewLayout.setOnTouchListener(this);
+	
+	
+ ..............................................
+	
+	// hide keyboard
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager)ProfileEditActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+ @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        hideKeyboard(v);
+        return false;
+    }
+
+
+//----------------- to move away the cursor from editText
+
+private RadioButton radioRegschoolChildrenYes, radioRegschoolChildrenNo;
+then add this
+radioRegschoolChildrenYes = (RadioButton) getView().findViewById(R.id.radioRegschoolChildrenYes);
+        radioRegschoolChildrenNo = (RadioButton) getView().findViewById(R.id.radioRegschoolChildrenNo);
