@@ -3,14 +3,12 @@
 	android:layout_height="wrap_content"
 	android:orientation="horizontal"
 	android:layout_margin="8dp">
-
 	<TextView
 		android:id="@+id/Text3"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:inputType="textPersonName"
 		android:text="Payment Mode" />
-
 	<TextView
 		android:id="@+id/Text_mandatory"
 		android:layout_width="wrap_content"
@@ -20,5 +18,4 @@
 		android:inputType="textPersonName"
 		android:text="*"
 		android:layout_weight="0.38" />
-
 </LinearLayout>
