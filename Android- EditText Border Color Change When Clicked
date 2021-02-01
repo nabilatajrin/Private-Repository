@@ -17,5 +17,4 @@
 </item>
 
 And set background:
-
 editText.setBackgroundResource(R.drawable.yourFile);
